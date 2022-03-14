@@ -9,7 +9,7 @@ pipeline{
     }
     stage('Push Docker Image'){
       steps{
-      withCredentials([string(credentialsId: 'docker-pwd', variable: 'DockerHubPwd')]) {
+      withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'DockerHubPwd')]) {
          sh "sudo docker login -u shivnathy -p ${DockerHubPwd}"
       }
         sh 'sudo docker push shivnathy/helloworld:latest'
